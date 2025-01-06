@@ -66,13 +66,10 @@ In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purpo
 - **Jobs** are subdivisions of tasks, splitting large datasets into smaller sections for concurrent labeling.
 
 ### 3.1. Create a Project (Optional)
-1) Go to Projects:
- - On the CVAT dashboard, navigate to the Projects tab
-   
-2) Create a New Project:
- - Define the project name, labels, and attributes.
- - Add a description or guidelines for consistent labeling.
- - Save and Continue.
+1) On the CVAT dashboard, navigate to the Projects tab
+2) Define the project name, labels, and attributes.
+3) Add a description or guidelines for consistent labeling.
+4) Save and Continue.
 
 
 
