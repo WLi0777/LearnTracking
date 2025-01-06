@@ -94,7 +94,7 @@ from dataprep.yolo_prep import prepare_yolo_dataset
 
 if __name__ == "__main__":
     prepare_yolo_dataset(
-        base_folder="yolo_test",         # Replace with your YOLO dataset base folder
+        base_folder="yolo_test",         
         source_images_folder="images_uploaded",      # Replace with the folder containing the images you uploaded to CVAT
         train_percentage=80                         # Percentage of data to assign to the training set
     )
