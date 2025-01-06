@@ -9,7 +9,7 @@ pip install git+https://github.com/WLi0777/LearnTracking.git
 ```
     
 Make sure you have Python 3.6 or higher installed.
-<br>
+<br><br>
 
 ## 2. Prepare Images for Labeling
 
@@ -57,7 +57,7 @@ Directory structure：
 ```
 
 Once frames are extracted, upload the images to CVAT for annotation. This ensures that the images used for labeling are accessible and manageable.
-<br>
+<br><br>
 
 ## 3. Labeling in CVAT
 
@@ -68,7 +68,7 @@ In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purpo
 - **Jobs** are subdivisions of tasks, splitting large datasets into smaller sections for concurrent labeling.
 
 Once annotations are complete, export the labeled dataset in the desired format -- [**YOLOv8 Pose 1.0**](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format).
-<br>
+<br><br>
 
 ## 4. Training a Model with YOLO
 
