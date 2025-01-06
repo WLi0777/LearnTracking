@@ -34,6 +34,7 @@ Once frames are extracted, upload the images to CVAT for annotation. This ensure
 │  ├── video01.mp4
 │  ├── video02.mp4
 │  └── video03.mp4
+│
 ├── output_frames_folder
 │  ├── video01
 │  │  ├── video01_img0000.png
