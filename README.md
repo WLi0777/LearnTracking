@@ -127,7 +127,7 @@ After processing, the folder structure will look like this:
 │  │  │  ├── video02_img0020.png
 │  │  │  ├── ...
 ```
-<br>
+
 
 ### Install YOLO
 
@@ -136,7 +136,7 @@ Install the YOLO training library using the following command:
 ```
 pip install ultralytics
 ```
-<br>
+
 
 ### Training the Model
 
