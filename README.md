@@ -72,6 +72,8 @@ Once annotations are complete, export the labeled dataset in the desired format 
 
 ## 4. Training a Model with YOLO
 
+### Prepare Dataset
+
 To train a YOLO model, first download and extract the annotated data exported from CVAT. After extraction, you should have a folder structure similar to this:
 
 ```
@@ -125,6 +127,21 @@ After processing, the folder structure will look like this:
 │  │  │  ├── video02_img0020.png
 │  │  │  ├── ...
 ```
+
+### Install YOLO
+
+Install the YOLO training library using the following command:
+
+```
+pip install ultralytics
+```
+
+### Training the Model
+
+Once the preprocessing is complete, you can start training your YOLO model with the following code:
+
+
+
 
 
 
