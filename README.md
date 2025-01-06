@@ -19,20 +19,34 @@ Here’s a quick [example](https://github.com/WLi0777/LearnTracking/blob/main/ex
   from dataprep.frame_extractor import extract_frames
 
   extract_frames(
-      input_path="path/to/your/video.mp4",  # Replace with the path (to a video file or a folder containing videos)
-      output_folder="path/to/output/folder",  # Replace with the desired output folder
-      percentage=10,  # Extract 10% of frames
-      method="uniform",  # Choose "uniform" for evenly spaced frames or "random"
-      seed=42  # Optional seed for reproducibility in "random" method
+      input_path="videos_folder",  
+      output_folder="output_frames_folder",  
+      percentage=10,  
+      method="uniform"
   )
   ```
 
 Once frames are extracted, upload the images to CVAT for annotation. This ensures that the images used for labeling are accessible and manageable.
 
 
-my_tracking_tools/ # Project root directory 
-├── dataprep/ # Main code package 
-│ ├── init.py # Package initialization file 
-│ ├── frame_extractor.py # Contains the extract_frames function 
-│ ├── yolo_dataset.py # Contains the prepare_yolo_dataset function │ ├── util.py # Utility functions (optional) ├── examples/ # Example scripts │ ├── example_extraction.py │ ├── example_yolo.py ├── tests/ # Test scripts │ ├── test_frame_extractor.py │ ├── test_yolo_dataset.py ├── setup.py # Project setup configuration ├── requirements.txt # Dependency list ├── README.md # Project documentation ├── LICENSE # Project license
+```
+├── videos_folder
+│  ├── video01.mp4
+│  ├── video02.mp4
+│  └── video03.mp4
+├── output_frames_folder
+│  ├── video01
+│  │  ├── video01_img0000.png
+│  │  ├── video01_img0005.png
+│  │  ├── video01_img0010.png
+│  ├── video02
+│  │  ├── video02_img0000.png
+│  │  ├── video02_img0004.png
+│  │  ├── video02_img0008.png
+│  ├── video03
+│  │  ├── video03_img0000.png
+│  │  ├── video03_img0007.png
+│  │  ├── video03_img0014.png
+
+```
 
