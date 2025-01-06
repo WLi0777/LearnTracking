@@ -88,31 +88,34 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
 
 def update_data_yaml(base_folder):
     """
-    Update the data.yaml file in the base folder.
+    Update the first YAML file found in the base folder.
 
     Args:
-        base_folder (str): Path to the YOLO dataset base folder (e.g., 'C:\\Users\\wl077\\Downloads\\yolotest').
+        base_folder (str): Path to the folder containing YAML files (e.g., 'C:\\Users\\wl077\\Downloads\\yolotest').
     """
-    data_yaml_path = os.path.join(base_folder, "data.yaml")
+    # Scan for YAML files in the folder
+    yaml_files = [f for f in os.listdir(base_folder) if f.endswith('.yaml')]
 
-    # Check if the data.yaml file exists
-    if not os.path.isfile(data_yaml_path):
-        raise FileNotFoundError(f"data.yaml file not found at: {data_yaml_path}")
+    if not yaml_files:
+        raise FileNotFoundError(f"No YAML files found in the folder: {base_folder}")
+
+    # Use the first YAML file found
+    yaml_file_path = os.path.join(base_folder, yaml_files[0])
 
     # Read the YAML file
-    with open(data_yaml_path, 'r') as file:
+    with open(yaml_file_path, 'r') as file:
         data = yaml.safe_load(file)
 
-    # Update the path, train, and add val fields
+    # Update the fields
     data['path'] = base_folder
-    data['train'] = "images/train"
-    data['val'] = "images/val"
+    data['train'] = os.path.join("images", "train")
+    data['val'] = os.path.join("images", "val")
 
     # Write back the updated YAML file
-    with open(data_yaml_path, 'w') as file:
+    with open(yaml_file_path, 'w') as file:
         yaml.safe_dump(data, file)
 
-    print(f"Updated data.yaml file at: {data_yaml_path}")
+    print(f"Updated YAML file at: {yaml_file_path}")
 
 
 def delete_train_txt(base_folder):
