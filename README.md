@@ -60,9 +60,20 @@ Once frames are extracted, upload the images to CVAT for annotation. This ensure
 ## 3. Labeling Workflow in CVAT
 
 In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purposes to streamline the labeling process. 
-- A Project is a high-level container that organizes related tasks and shares metadata like labels, attributes, and guidelines.
-- A Task is a specific unit of work, typically representing one dataset (e.g., a video or a batch of images), which can be created independently or within a project. Tasks allow for progress tracking and dataset management.
-- Jobs are subdivisions of tasks, automatically created to split large datasets into smaller, manageable sections for concurrent labeling. 
+
+- **Projects** organize related tasks and share common metadata like labels and guidelines.
+- **Tasks** represent individual datasets (e.g., a video or images) and track progress.
+- **Jobs** are subdivisions of tasks, splitting large datasets into smaller sections for concurrent labeling.
+
+### 3.1. Create a Project (Optional)
+1） Go to Projects:
+- On the CVAT dashboard, navigate to the Projects tab
+2) Create a New Project:
+- Define the project name, labels, and attributes.
+- Add a description or guidelines for consistent labeling.
+- Save and Continue.
+
+
 
 
 
