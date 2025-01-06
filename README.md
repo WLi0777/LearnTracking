@@ -73,6 +73,7 @@ Once annotations are complete, export the labeled dataset in the desired format 
 ## 4. Training a Model with YOLO
 
 To train a YOLO model, first download and extract the annotated data exported from CVAT. After extraction, you should have a folder structure similar to this:
+
 ```
 ├── yolo_test
 │  ├── data.yaml
@@ -86,7 +87,46 @@ To train a YOLO model, first download and extract the annotated data exported fr
 
 Before starting training, the configuration file (data.yaml) needs to be updated, and the data should be split into training and validation sets. Additionally, the corresponding image files must be copied to their respective directories.
 
-Use the provided example script to preprocess the data. After processing, the folder structure will look like this:
+Use the provided [script](https://github.com/WLi0777/LearnTracking/blob/main/examples/example_yolo_prep.py) to preprocess the data.
+
+```python
+from dataprep.yolo_prep import prepare_yolo_dataset
+
+if __name__ == "__main__":
+    prepare_yolo_dataset(
+        base_folder="yolo_test",         # Replace with your YOLO dataset base folder
+        source_images_folder="images_uploaded",      # Replace with the folder containing the images you uploaded to CVAT
+        train_percentage=80                         # Percentage of data to assign to the training set
+    )
+    print("YOLO dataset preparation completed!")
+```
+
+After processing, the folder structure will look like this:
+
+```
+├── yolo_test
+│  ├── data.yaml
+│  ├── labels
+│  │  ├── train
+│  │  │  ├── video01_img0005.txt
+│  │  │  ├── video02_img0010.txt
+│  │  │  ├── ...
+│  │  ├── val
+│  │  │  ├── video01_img0015.txt
+│  │  │  ├── video02_img0020.txt
+│  │  │  ├── ...
+│  ├── images
+│  │  ├── train
+│  │  │  ├── video01_img0005.png
+│  │  │  ├── video02_img0010.png
+│  │  │  ├── ...
+│  │  ├── val
+│  │  │  ├── video01_img0015.png
+│  │  │  ├── video02_img0020.png
+│  │  │  ├── ...
+```
+
+
 
 
 
