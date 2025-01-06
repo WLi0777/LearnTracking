@@ -1,4 +1,4 @@
-from my_tracking_tools import extract_frames
+from dataprep import extract_frames
 
 if __name__ == "__main__":
     extract_frames(
