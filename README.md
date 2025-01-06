@@ -65,11 +65,7 @@ In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purpo
 - **Tasks** represent individual datasets (e.g., a video or images) and track progress.
 - **Jobs** are subdivisions of tasks, splitting large datasets into smaller sections for concurrent labeling.
 
-### 3.1. Create a Project (Optional)
-1) On the CVAT dashboard, navigate to the Projects tab
-2) Define the project name, labels, and attributes.
-3) Add a description or guidelines for consistent labeling.
-4) Save and Continue.
+Once annotations are complete, export the labeled dataset in the desired format -- [**YOLOv8 Pose 1.0**](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format).
 
 
 
