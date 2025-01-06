@@ -1,6 +1,6 @@
 # LearnTracking
 
-## Step 1. Installation
+## 1. Installation
 
 To install the library, use the following command:
 
@@ -10,7 +10,7 @@ pip install git+https://github.com/WLi0777/LearnTracking.git
     
 Make sure you have Python 3.6 or higher installed.
 <br><br>
-## Step 2. Prepare Images for Labeling
+## 2. Prepare Images for Labeling
 
 To use [CVAT](https://www.cvat.ai/) as the labeling tool, note that the platform allows exporting annotated datasets for free but does not provide an option to export the original images used for labeling. Exporting a dataset with images requires upgrading the account.
 
@@ -56,4 +56,13 @@ Directory structure：
 ```
 
 Once frames are extracted, upload the images to CVAT for annotation. This ensures that the images used for labeling are accessible and manageable.
+<br><br>
+## 3. Labeling Workflow in CVAT
+
+In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purposes to streamline the labeling process. 
+- A Project is a high-level container that organizes related tasks and shares metadata like labels, attributes, and guidelines.
+- A Task is a specific unit of work, typically representing one dataset (e.g., a video or a batch of images), which can be created independently or within a project. Tasks allow for progress tracking and dataset management.
+- Jobs are subdivisions of tasks, automatically created to split large datasets into smaller, manageable sections for concurrent labeling. 
+
+
 
