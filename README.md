@@ -1,6 +1,6 @@
 # LearnTracking
 
-## Step 1. Installation
+<h2 style="color:blue;">Step 1. Installation</h2>
 
 To install the library, use the following command:
 ```
