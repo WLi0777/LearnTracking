@@ -151,6 +151,9 @@ results = model.train(data="yolo_test/data.yaml", epochs=100, imgsz=640)
 ```
 
 
+    > If the pretrained model is not downloaded automatically, visit this [link](https://docs.ultralytics.com/tasks/pose/#real-world-applications) to download the desired model and update the path accordingly.
+
+
 
 
 
