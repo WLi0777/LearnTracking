@@ -3,6 +3,7 @@ import shutil
 import yaml  # Ensure PyYAML is installed: pip install pyyaml
 import random
 
+
 def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
     """
     Prepare YOLO dataset by copying images and splitting them into train and val sets.
@@ -86,6 +87,7 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
     delete_train_txt(base_folder)
 
 
+
 def update_data_yaml(base_folder):
     """
     Update the first YAML file found in the base folder.
@@ -116,7 +118,6 @@ def update_data_yaml(base_folder):
         yaml.safe_dump(data, file)
 
     print(f"Updated YAML file at: {yaml_file_path}")
-
 
 def delete_train_txt(base_folder):
     """
