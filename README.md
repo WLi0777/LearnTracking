@@ -3,9 +3,11 @@
 ## Step 1. Installation
 
 To install the library, use the following command:
+
     ```
     pip install git+https://github.com/WLi0777/LearnTracking.git
     ```
+    
 Make sure you have Python 3.6 or higher installed.
 <br><br>
 ## Step 2. Prepare Images for Labeling
@@ -25,6 +27,7 @@ Here’s a quick [example](https://github.com/WLi0777/LearnTracking/blob/main/ex
         method="uniform"
     )
     ```
+    
 Directory structure：
     ```
     ├── videos_folder
