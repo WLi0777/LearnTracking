@@ -29,3 +29,6 @@ Here’s a quick [example](https://github.com/WLi0777/LearnTracking/blob/main/ex
 
 Once frames are extracted, upload the images to CVAT for annotation. This ensures that the images used for labeling are accessible and manageable.
 
+
+my_tracking_tools/ # Project root directory ├── dataprep/ # Main code package │ ├── init.py # Package initialization file │ ├── frame_extractor.py # Contains the extract_frames function │ ├── yolo_dataset.py # Contains the prepare_yolo_dataset function │ ├── util.py # Utility functions (optional) ├── examples/ # Example scripts │ ├── example_extraction.py │ ├── example_yolo.py ├── tests/ # Test scripts │ ├── test_frame_extractor.py │ ├── test_yolo_dataset.py ├── setup.py # Project setup configuration ├── requirements.txt # Dependency list ├── README.md # Project documentation ├── LICENSE # Project license
+
