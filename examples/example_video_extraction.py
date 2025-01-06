@@ -6,6 +6,6 @@ if __name__ == "__main__":
         output_folder="path/to/output/folder",  # Replace with the desired output folder
         percentage=10,  # Extract 10% of frames
         method="uniform",  # Choose "uniform" or "random"
-        seed=42  # Optional seed for reproducibility in "random" method
+        seed=40  # Optional seed for reproducibility in "random" method
     )
     print("Frames extracted successfully!")
