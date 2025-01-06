@@ -128,6 +128,7 @@ After processing, the folder structure will look like this:
 │  │  │  ├── ...
 ```
 <br>
+
 ### Install YOLO
 
 Install the YOLO training library using the following command:
@@ -136,6 +137,7 @@ Install the YOLO training library using the following command:
 pip install ultralytics
 ```
 <br>
+
 ### Training the Model
 
 Once the preprocessing is complete, you can start training your YOLO model with the following code:
