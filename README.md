@@ -17,6 +17,7 @@ To use [CVAT](https://www.cvat.ai/) as the labeling tool, note that the platform
 As a workaround, you can process videos into selected frames and import them into CVAT. The function extract_frames helps you achieve this by extracting frames from a video or a folder of videos.
 
 Here’s a quick [example](https://github.com/WLi0777/LearnTracking/blob/main/examples/example_video_extraction.py) of how to use extract_frames:
+    
     ```python
     from dataprep.frame_extractor import extract_frames
     
