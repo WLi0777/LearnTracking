@@ -140,8 +140,15 @@ pip install ultralytics
 
 Once the preprocessing is complete, you can start training your YOLO model with the following code:
 
+```python
+from ultralytics import YOLO
 
+# Load a model
+model = YOLO("yolo11n-pose.pt")  # load a pretrained model (recommended for training)
 
+# Train the model
+results = model.train(data="yolo_test/data.yaml", epochs=100, imgsz=640)
+```
 
 
 
