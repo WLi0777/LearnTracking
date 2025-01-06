@@ -67,11 +67,12 @@ In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purpo
 
 ### 3.1. Create a Project (Optional)
 1) Go to Projects:
-   - On the CVAT dashboard, navigate to the Projects tab
+ - On the CVAT dashboard, navigate to the Projects tab
+   
 2) Create a New Project:
-   - Define the project name, labels, and attributes.
-   - Add a description or guidelines for consistent labeling.
-   - Save and Continue.
+ - Define the project name, labels, and attributes.
+ - Add a description or guidelines for consistent labeling.
+ - Save and Continue.
 
 
 
