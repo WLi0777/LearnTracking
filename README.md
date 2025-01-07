@@ -43,17 +43,17 @@ Directory structure：
 │  │  ├── video01_img0000.png
 │  │  ├── video01_img0005.png
 │  │  ├── video01_img0010.png
-│  │  ├── ...
+│  │  └──  ...
 │  ├── video02
 │  │  ├── video02_img0000.png
 │  │  ├── video02_img0004.png
 │  │  ├── video02_img0008.png
-│  │  ├── ...
+│  │  └──  ...
 │  ├── video03
 │  │  ├── video03_img0000.png
 │  │  ├── video03_img0007.png
 │  │  ├── video03_img0014.png
-│  │  ├── ...
+│  │  └──  ...
 ```
 
 Once frames are extracted, upload the images to CVAT for annotation. This ensures that the images used for labeling are accessible and manageable.
@@ -84,7 +84,7 @@ To train a YOLO model, first download and extract the annotated data exported fr
 │  │  ├── train
 │  │  │  ├── video01_img0005.txt
 │  │  │  ├── video02_img0010.txt
-│  │  │  ├── ...
+│  │  │  └──  ...
 ```
 
 Before starting training, the configuration file (data.yaml) needs to be updated, and the data should be split into training and validation sets. Additionally, the corresponding image files must be copied to their respective directories.
@@ -112,20 +112,20 @@ After processing, the folder structure will look like this:
 │  │  ├── train
 │  │  │  ├── video01_img0005.txt
 │  │  │  ├── video02_img0010.txt
-│  │  │  ├── ...
+│  │  │  └──  ...
 │  │  ├── val
 │  │  │  ├── video01_img0015.txt
 │  │  │  ├── video02_img0020.txt
-│  │  │  ├── ...
+│  │  │  └──  ...
 │  ├── images
 │  │  ├── train
 │  │  │  ├── video01_img0005.png
 │  │  │  ├── video02_img0010.png
-│  │  │  ├── ...
+│  │  │  └──  ...
 │  │  ├── val
 │  │  │  ├── video01_img0015.png
 │  │  │  ├── video02_img0020.png
-│  │  │  ├── ...
+│  │  │  └──  ...
 ```
 
 
