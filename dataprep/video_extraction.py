@@ -30,10 +30,9 @@ def extract_frames(
     else:
         raise ValueError("The input path must be a valid video file or a folder containing videos.")
 
-    # Determine save folder logic
-    if len(videos) > 1:  # Multiple videos
-        total_frames_folder = os.path.join(output_folder,
-                                           "total_video_frames") if output_folder else "total_video_frames"
+    # Create a total folder if multiple videos are present
+    if len(videos) > 1:
+        total_frames_folder = os.path.join(output_folder, "total_video_frames") if output_folder else "total_video_frames"
         os.makedirs(total_frames_folder, exist_ok=True)
     else:
         total_frames_folder = None  # No total folder needed for single video
@@ -42,12 +41,8 @@ def extract_frames(
     for video_path in videos:
         video_name = os.path.splitext(os.path.basename(video_path))[0]
 
-        # Determine specific save folder
-        if total_frames_folder:
-            save_folder = total_frames_folder
-        else:
-            save_folder = output_folder or os.path.join(os.getcwd(), video_name)
-
+        # Create a specific folder for this video
+        save_folder = os.path.join(output_folder, video_name) if output_folder else video_name
         os.makedirs(save_folder, exist_ok=True)
 
         cap = cv2.VideoCapture(video_path)
@@ -71,10 +66,20 @@ def extract_frames(
             if not ret:
                 continue
 
-            # Save frame with consistent naming
+            # Save frame with the video name in the filename
             frame_name = f"{video_name}_img{i:04d}.png"
+
+            # Save to the specific folder for this video
             cv2.imwrite(os.path.join(save_folder, frame_name), frame)
+
+            # Additionally, save to the total frames folder if applicable
+            if total_frames_folder:
+                cv2.imwrite(os.path.join(total_frames_folder, frame_name), frame)
+
             frame_counter += 1
 
         cap.release()
         print(f"Frames from video '{video_name}' have been saved to '{save_folder}'.")
+
+    if total_frames_folder:
+        print(f"All frames have also been saved to the total frames folder '{total_frames_folder}'.")
