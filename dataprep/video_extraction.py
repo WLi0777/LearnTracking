@@ -30,15 +30,30 @@ def extract_frames(
     else:
         raise ValueError("The input path must be a valid video file or a folder containing videos.")
 
+    # Determine save folder logic
+    if len(videos) > 1:  # Multiple videos
+        total_frames_folder = os.path.join(output_folder,
+                                           "total_video_frames") if output_folder else "total_video_frames"
+        os.makedirs(total_frames_folder, exist_ok=True)
+    else:
+        total_frames_folder = None  # No total folder needed for single video
+
     # Process each video
     for video_path in videos:
         video_name = os.path.splitext(os.path.basename(video_path))[0]
-        save_folder = output_folder or os.path.join(os.getcwd(), video_name)
+
+        # Determine specific save folder
+        if total_frames_folder:
+            save_folder = total_frames_folder
+        else:
+            save_folder = output_folder or os.path.join(os.getcwd(), video_name)
+
         os.makedirs(save_folder, exist_ok=True)
 
         cap = cv2.VideoCapture(video_path)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
+        # Select frames based on the method
         if method == "random":
             if seed is not None:
                 random.seed(seed)
@@ -55,7 +70,8 @@ def extract_frames(
             ret, frame = cap.read()
             if not ret:
                 continue
-            # Save frame with the video name in the filename
+
+            # Save frame with consistent naming
             frame_name = f"{video_name}_img{i:04d}.png"
             cv2.imwrite(os.path.join(save_folder, frame_name), frame)
             frame_counter += 1
