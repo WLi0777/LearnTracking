@@ -7,7 +7,7 @@ setup(
     install_requires=[
         "opencv-python",
         "pyyaml",
-        "deeplabcut==2.3.9",
+        "deeplabcut==2.3.10",
         "tensorpack", 
     ],
     description="A library for learning tracking",
