@@ -9,6 +9,7 @@ setup(
         "pyyaml",
         "deeplabcut==2.3.10",
         "tensorpack", 
+        "tensorflow==2.12.0",
     ],
     description="A library for learning tracking",
     author="WL",
