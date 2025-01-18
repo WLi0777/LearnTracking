@@ -7,7 +7,8 @@ def extract_frames(
         output_folder=None,
         percentage=100,
         method="uniform",
-        seed=None
+        seed=None, 
+        subfolder=None
 ):
     """
     Extract frames from videos and save them into specified folders.
@@ -18,6 +19,7 @@ def extract_frames(
         percentage (int): Percentage of frames to extract (0-100).
         method (str): Extraction method, either "uniform" (evenly spaced frames) or "random".
         seed (int): Random seed for reproducibility when using the "random" method.
+        subfolder (bool): save subfolder or not.
 
     Returns:
         None
@@ -70,7 +72,8 @@ def extract_frames(
             frame_name = f"{video_name}_img{i:04d}.png"
 
             # Save to the specific folder for this video
-            cv2.imwrite(os.path.join(save_folder, frame_name), frame)
+            if subfolder:
+                cv2.imwrite(os.path.join(save_folder, frame_name), frame)
 
             # Additionally, save to the total frames folder if applicable
             if total_frames_folder:
