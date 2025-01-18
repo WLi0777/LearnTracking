@@ -63,12 +63,6 @@ def create_new_project(
     from datetime import datetime as dt
     from deeplabcut.utils import auxiliaryfunctions
 
-    json_files = [f for f in os.listdir(json_folder) if f.endswith('.json')]
-    if json_files:
-        json_file = os.path.join(json_folder, json_files[0])
-    else:
-        print("No JSON file found in the specified folder.")
-
     videotypes = (".mp4", ".avi", ".mov", ".mkv")
 
     months_3letter = {
@@ -188,7 +182,14 @@ def create_new_project(
         % (project_name, str(wd))
     )
 
-
+    json_files = [f for f in os.listdir(json_folder) if f.endswith('.json')]
+    if json_files:
+        json_file = os.path.join(json_folder, json_files[0])
+        print(f"Using JSON file: {json_file}")
+        create_new_project(project, experimenter, json_file, videos_dir, frames_dir, working_directory, copy_videos,
+                           multianimal, videotype)
+    else:
+        print("No JSON file found in the specified folder.")
 
     copy_images(frames_dir, project_path, json_file, experimenter)
     deeplabcut.convertcsv2h5(projconfigfile, userfeedback= False)
@@ -246,11 +247,10 @@ def copy_images(frame_dir, proj_path, js_file, scorer):
                 if file_name in files:
                     found = True
                     img_path = os.path.join(root, file_name)
+                    
+                    video_name = file_name[:file_name.find('_img')]
 
-                    folder_path = os.path.dirname(img_path)
-                    folder_name = os.path.basename(folder_path)
-
-                    target_dir = os.path.join(proj_path, "labeled-data", folder_name)
+                    target_dir = os.path.join(proj_path, "labeled-data", video_name)
                     os.makedirs(target_dir, exist_ok=True)
 
                     new_file_name = file_name[file_name.find('img'):] if 'img' in file_name else file_name
@@ -284,7 +284,7 @@ def copy_images(frame_dir, proj_path, js_file, scorer):
                                 else:
                                     coords.extend([None, None])
 
-                            row = ['labeled-data', folder_name, new_file_name] + coords
+                            row = ['labeled-data', video_name, new_file_name] + coords
                             writer.writerow(row)
 
             if not found:
