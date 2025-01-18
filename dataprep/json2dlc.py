@@ -63,6 +63,12 @@ def create_new_project(
     from datetime import datetime as dt
     from deeplabcut.utils import auxiliaryfunctions
 
+    json_files = [f for f in os.listdir(json_folder) if f.endswith('.json')]
+    if json_files:
+        json_file = os.path.join(json_folder, json_files[0])
+    else:
+        print("No JSON file found in the specified folder.")
+
     videotypes = (".mp4", ".avi", ".mov", ".mkv")
 
     months_3letter = {
@@ -182,14 +188,7 @@ def create_new_project(
         % (project_name, str(wd))
     )
 
-    json_files = [f for f in os.listdir(json_folder) if f.endswith('.json')]
-    if json_files:
-        json_file = os.path.join(json_folder, json_files[0]) 
-        print(f"Using JSON file: {json_file}")
-        create_new_project(project, experimenter, json_file, videos_dir, frames_dir, working_directory, copy_videos,
-                           multianimal, videotype)
-    else:
-        print("No JSON file found in the specified folder.")
+
 
     copy_images(frames_dir, project_path, json_file, experimenter)
     deeplabcut.convertcsv2h5(projconfigfile, userfeedback= False)
