@@ -12,7 +12,7 @@ import csv
 def create_new_project(
     project,
     experimenter,
-    json_file,
+    json_folder,
     videos_dir,
     frames_dir,
     working_directory=None,
@@ -34,8 +34,8 @@ def create_new_project(
     experimenter : string
         The name of the experimenter.
 
-    yolo_folder: string
-        The path of the yolo folder (contains yaml file and datasets)
+    json_folder: string
+        The path of the folder (contains .json file)
 
     videos : list[str]
         A list of strings representing the full paths of the videos to include in the
@@ -182,13 +182,20 @@ def create_new_project(
         % (project_name, str(wd))
     )
 
+    json_files = [f for f in os.listdir(json_folder) if f.endswith('.json')]
+    if json_files:
+        json_file = os.path.join(json_folder, json_files[0]) 
+        print(f"Using JSON file: {json_file}")
+        create_new_project(project, experimenter, json_file, videos_dir, frames_dir, working_directory, copy_videos,
+                           multianimal, videotype)
+    else:
+        print("No JSON file found in the specified folder.")
+
     copy_images(frames_dir, project_path, json_file, experimenter)
     deeplabcut.convertcsv2h5(projconfigfile, userfeedback= False)
     deeplabcut.create_training_dataset(projconfigfile)
 
     return projconfigfile
-
-
 
 
 def json2dlc_config_single(json_file):
