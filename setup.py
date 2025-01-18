@@ -8,6 +8,7 @@ setup(
         "opencv-python",
         "pyyaml",
         "deeplabcut",
+        "tensorpack", 
     ],
     description="A library for learning tracking",
     author="WL",
