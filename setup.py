@@ -7,6 +7,7 @@ setup(
     install_requires=[
         "opencv-python",
         "pyyaml",
+        "deeplabcut",
     ],
     description="A library for learning tracking",
     author="WL",
