@@ -127,9 +127,10 @@ def update_data_yaml(base_folder):
         data = yaml.safe_load(file)
 
     # Update the fields
-    data['path'] = base_folder
-    data['train'] = os.path.join(base_folder, "images", "train")
-    data['val'] = os.path.join(base_folder, "images", "val")
+    base_folder2 = os.path.join('/content', base_folder)
+    data['path'] = base_folder2
+    data['train'] = os.path.join(base_folder2, "images", "train")
+    data['val'] = os.path.join(base_folder2, "images", "val")
 
     # Write back the updated YAML file
     with open(yaml_file_path, 'w') as file:
