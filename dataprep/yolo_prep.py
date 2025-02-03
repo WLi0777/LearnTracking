@@ -128,8 +128,8 @@ def update_data_yaml(base_folder):
 
     # Update the fields
     data['path'] = base_folder
-    data['train'] = os.path.join("images", "train")
-    data['val'] = os.path.join("images", "val")
+    data['train'] = os.path.join(base_folder, "images", "train")
+    data['val'] = os.path.join(base_folder, "images", "val")
 
     # Write back the updated YAML file
     with open(yaml_file_path, 'w') as file:
