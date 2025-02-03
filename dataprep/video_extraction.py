@@ -37,7 +37,7 @@ def extract_frames(
         total_frames_folder = os.path.join(output_folder, "total_video_frames") if output_folder else "total_video_frames"
         os.makedirs(total_frames_folder, exist_ok=True)
     else:
-        total_frames_folder = None  # No total folder needed for single video
+        total_frames_folder = True  
 
     # Process each video
     for video_path in videos:
