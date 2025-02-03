@@ -13,6 +13,6 @@ def create_folders(video_folder="ori_video", frames_folder="frames_labeling", la
     os.makedirs(video_folder, exist_ok=True)
     os.makedirs(frames_folder, exist_ok=True)
     os.makedirs(labeled_folder, exist_ok=True)
-    # os.makedirs(total_frames, exist_ok=True)
+    os.makedirs(total_frames, exist_ok=True)
 
     print(f"Created folders: {video_folder}, {frames_folder}, {labeled_folder}")
