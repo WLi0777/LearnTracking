@@ -70,6 +70,7 @@ def extract_frames(
 
             # Save frame with the video name in the filename
             frame_name = f"{video_name}_img{i:04d}.png"
+            print(frame_name)
 
             # Save to the specific folder for this video
             if subfolder:
