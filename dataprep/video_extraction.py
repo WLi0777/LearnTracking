@@ -49,6 +49,7 @@ def extract_frames(
 
         cap = cv2.VideoCapture(video_path)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        print(f"Video '{video_name}' has '{total_frames}' frames")
 
         # Select frames based on the method
         if method == "random":
@@ -70,8 +71,6 @@ def extract_frames(
 
             # Save frame with the video name in the filename
             frame_name = f"{video_name}_img{i:04d}.png"
-            print(frame_name)
-
             # Save to the specific folder for this video
             if subfolder:
                 cv2.imwrite(os.path.join(save_folder, frame_name), frame)
