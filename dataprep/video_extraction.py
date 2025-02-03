@@ -8,7 +8,7 @@ def extract_frames(
         percentage=100,
         method="uniform",
         seed=None, 
-        subfolder=None
+        subfolder=True
 ):
     """
     Extract frames from videos and save them into specified folders.
