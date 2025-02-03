@@ -20,14 +20,14 @@ As a workaround, you can process videos into selected frames and import them int
 Here’s a quick [example](https://github.com/WLi0777/LearnTracking/blob/main/examples/example_video_extraction.py) of how to use extract_frames:
     
 ```python
-from dataprep.frame_extractor import extract_frames
+from dataprep.video_extraction import extract_frames
 
 extract_frames(
-    input_path="videos_folder",  
-    output_folder="output_frames_folder",  
-    percentage=10,  
-    method="uniform"
-)
+        input_path = video_folder,
+        output_folder = frames_folder,
+        frames_number = 10,  # Extract 20 frames
+        method = "uniform"  # Choose "uniform" or "random" or "kmeans"
+        )
 ```
     
 Directory structure：
@@ -94,13 +94,11 @@ Use the provided [script](https://github.com/WLi0777/LearnTracking/blob/main/exa
 ```python
 from dataprep.yolo_prep import prepare_yolo_dataset
 
-if __name__ == "__main__":
-    prepare_yolo_dataset(
-        base_folder="yolo_test",         
-        source_images_folder="images_uploaded",      # Replace with the folder containing the images you uploaded to CVAT
-        train_percentage=80                         # Percentage of data to assign to the training set
+prepare_yolo_dataset(
+        base_folder=labeled_folder,
+        source_images_folder=total_frames,
+        train_percentage=80
     )
-    print("YOLO dataset preparation completed!")
 ```
 
 After processing, the folder structure will look like this:
