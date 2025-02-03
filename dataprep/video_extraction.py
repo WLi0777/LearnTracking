@@ -74,7 +74,7 @@ def extract_frames(
             # Save to the specific folder for this video
             if subfolder:
                 cv2.imwrite(os.path.join(save_folder, frame_name), frame)
-                print(f"Frames from video '{video_name}' have been saved to '{save_folder}'.")
+                # print(f"Frames from video '{video_name}' have been saved to '{save_folder}'.")
 
             # Additionally, save to the total frames folder if applicable
             if total_frames_folder:
