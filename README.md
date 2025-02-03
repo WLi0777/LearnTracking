@@ -67,7 +67,7 @@ In [CVAT](https://www.cvat.ai/), Projects, Tasks, and Jobs serve different purpo
 - **Tasks** represent individual datasets (e.g., a video or images) and track progress.
 - **Jobs** are subdivisions of tasks, splitting large datasets into smaller sections for concurrent labeling.
 
-Once annotations are complete, export the labeled dataset in the desired format -- [**YOLOv8 Pose 1.0**](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format).
+Once annotations are complete, export the labeled dataset in the desired format -- [**YOLO Detection 1.0**](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format).
 <br><br>
 
 ## 4. Training a Model with YOLO
