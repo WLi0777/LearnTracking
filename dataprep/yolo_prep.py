@@ -155,3 +155,15 @@ def delete_train_txt(base_folder):
             print(f"Failed to delete 'train.txt': {e}")
     else:
         print(f"'train.txt' does not exist in {base_folder}")
+
+
+def find_yaml_file(root_dir):
+    for dirpath, _, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if filename.endswith(".yaml"):
+                return os.path.join(dirpath, filename)
+    return None
+
+
+
+
