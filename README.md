@@ -2,8 +2,7 @@
 
 Follow along in google colab:
 
-YOLO tracking - https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing
-
+YOLO tracking - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/username/repository/blob/main/path/to/notebook.ipynb](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing))
 
 
 ## 1. Installation
