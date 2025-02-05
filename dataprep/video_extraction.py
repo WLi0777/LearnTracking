@@ -10,7 +10,7 @@ def extract_frames(
         input_path,
         output_folder=None,
         percentage=None,
-        frames_number=None,
+        frame_number=None,
         method=None,
         seed=None,
         subfolder=True,
@@ -24,8 +24,8 @@ def extract_frames(
     Args:
         input_path (str): Path to a video file or a folder containing videos.
         output_folder (str): Root directory to save extracted frames. If None, a folder with the video name is created.
-        percentage (int, optional): Percentage of frames to extract (0-100). Used if frames_number is None.
-        frames_number (int, optional): Number of frames to extract. Overrides percentage if set.
+        percentage (int, optional): Percentage of frames to extract (0-100). Used if frame_number is None.
+        frame_number (int, optional): Number of frames to extract. Overrides percentage if set.
         method (str): Extraction method, either "uniform", "random", or "kmeans".
         seed (int): Random seed for reproducibility.
         subfolder (bool): Whether to save frames in a subfolder per video.
@@ -67,20 +67,20 @@ def extract_frames(
         print(f"Video '{video_name}' has '{total_frames}' frames")
 
         # Select frames based on the method
-        if frames_number is not None:
-            if frames_number > total_frames:
+        if frame_number is not None:
+            if frame_number > total_frames:
                 print(
-                    f"Warning: Requested {frames_number} frames, but video only has {total_frames} frames. Extracting all.")
-                frames_number = total_frames
+                    f"Warning: Requested {frame_number} frames, but video only has {total_frames} frames. Extracting all.")
+                frame_number = total_frames
             if method == "random":
                 if seed is not None:
                     random.seed(seed)
-                frame_indices = sorted(random.sample(range(total_frames), frames_number))
+                frame_indices = sorted(random.sample(range(total_frames), frame_number))
             elif method == "uniform":
-                step = max(1, total_frames // frames_number)
-                frame_indices = list(range(0, total_frames, step))[:frames_number]
+                step = max(1, total_frames // frame_number)
+                frame_indices = list(range(0, total_frames, step))[:frame_number]
             elif method == "kmeans":
-                frame_indices = kmeans_frame_selection(cap, frames_number, resize_width, batch_size, max_iter)
+                frame_indices = kmeans_frame_selection(cap, frame_number, resize_width, batch_size, max_iter)
             else:
                 raise ValueError(f"Unknown extraction method: {method}")
         elif percentage is not None:
@@ -97,7 +97,7 @@ def extract_frames(
             else:
                 raise ValueError(f"Unknown extraction method: {method}")
         else:
-            raise ValueError("Either 'percentage' or 'frames_number' must be specified.")
+            raise ValueError("Either 'percentage' or 'frame_number' must be specified.")
 
         frame_counter = 0
         for i in frame_indices:
