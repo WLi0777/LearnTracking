@@ -1,9 +1,13 @@
 # LearnTracking
 
-Follow along in google colab:
+Follow along using our tutorials in Google Colab:
 
-YOLO tracking - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/username/repository/blob/main/path/to/notebook.ipynb](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing))
+YOLO Instance Detection: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing)
 
+DeepLabCut and Anipose for pose estimation: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XDvIR7-x48aLMr2n-I7WjWjT7o02WZij?usp=sharing)
+
+Read about the original implementation of DeepLabCut from Mathis et al., here: https://github.com/DeepLabCut/DeepLabCut
+Read about the original implementation of Anipose from the Tuthill lab here: https://github.com/lambdaloop/anipose
 
 ## 1. Installation
 
