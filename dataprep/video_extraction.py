@@ -143,6 +143,7 @@ def kmeans_frame_selection(cap, num_frames, resize_width=30, batch_size=100, max
     frame_indices = np.linspace(0, total_frames - 1, num=min(1000, total_frames), dtype=int)
 
     feature_vectors = []
+    valid_indices = []
     for i in tqdm(frame_indices, desc="Extracting frames for K-means clustering"):
         cap.set(cv2.CAP_PROP_POS_FRAMES, i)
         ret, frame = cap.read()
@@ -152,19 +153,31 @@ def kmeans_frame_selection(cap, num_frames, resize_width=30, batch_size=100, max
         frame_resized = cv2.resize(frame, (resize_width, resize_width))
         gray = cv2.cvtColor(frame_resized, cv2.COLOR_BGR2GRAY)
         feature_vectors.append(gray.flatten())
+        valid_indices.append(i)
 
     if len(feature_vectors) < num_frames:
         print(f"Warning: Not enough frames for K-means. Returning all {len(feature_vectors)} frames.")
-        return frame_indices[:num_frames]
+        return sorted(valid_indices)
 
     print("Performing K-means clustering...")
-    kmeans = MiniBatchKMeans(n_clusters=num_frames, batch_size=batch_size, max_iter=max_iter)
+
+    num_clusters = min(num_frames, len(feature_vectors))
+    if num_clusters < num_frames:
+        print(f"Warning: Not enough distinct frames for {num_frames} clusters. Using {num_clusters} clusters instead.")
+
+    kmeans = MiniBatchKMeans(n_clusters=num_clusters, batch_size=batch_size, max_iter=max_iter, random_state=42)
     kmeans.fit(feature_vectors)
 
     selected_frames = []
-    for cluster_id in range(num_frames):
+    for cluster_id in range(num_clusters):
         cluster_indices = np.where(kmeans.labels_ == cluster_id)[0]
         if len(cluster_indices) > 0:
-            selected_frames.append(frame_indices[random.choice(cluster_indices)])
+            selected_frames.append(valid_indices[random.choice(cluster_indices)])
+
+    if len(selected_frames) < num_frames:
+        print(f"Warning: Only {len(selected_frames)} clusters found, adding extra frames.")
+        remaining_indices = list(set(valid_indices) - set(selected_frames))
+        random.shuffle(remaining_indices)
+        selected_frames.extend(remaining_indices[:num_frames - len(selected_frames)])
 
     return sorted(selected_frames)
