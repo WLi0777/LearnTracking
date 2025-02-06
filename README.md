@@ -3,6 +3,7 @@
 Follow along using our tutorials in Google Colab:
 
 YOLO Instance Detection: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing)
+
 *Read more about YOLO by Ultralytics here: https://docs.ultralytics.com/*
 
 DeepLabCut and Anipose for pose estimation: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XDvIR7-x48aLMr2n-I7WjWjT7o02WZij?usp=sharing)
