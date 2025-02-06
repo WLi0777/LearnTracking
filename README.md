@@ -4,13 +4,13 @@ Follow along using our tutorials in Google Colab:
 
 **YOLO Instance Detection:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing)
 
-    *Read more about YOLO by Ultralytics here: https://docs.ultralytics.com/*
+-*Read more about YOLO by Ultralytics here: https://docs.ultralytics.com/*
 
 **DeepLabCut and Anipose for pose estimation:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XDvIR7-x48aLMr2n-I7WjWjT7o02WZij?usp=sharing)
 
-    *Read about the original implementation of DeepLabCut from Mathis et al., here: https://github.com/DeepLabCut/DeepLabCut*
+-*Read about the original implementation of DeepLabCut from Mathis et al., here: https://github.com/DeepLabCut/DeepLabCut*
 
-    *Read about the original implementation of Anipose from the Tuthill lab here: https://github.com/lambdaloop/anipose*
+-*Read about the original implementation of Anipose from the Tuthill lab here: https://github.com/lambdaloop/anipose*
 
 ## 1. Installation
 
