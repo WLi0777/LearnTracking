@@ -175,7 +175,7 @@ def create_new_project(
     cfg_file["move2corner"] = True
     cfg_file["skeleton_color"] = "black"
     cfg_file["pcutoff"] = 0.6
-    cfg_file["dotsize"] = 12  # for plots size of dots
+    cfg_file["dotsize"] = 2  # for plots size of dots
     cfg_file["alphavalue"] = 0.7  # for plots transparency of markers
     cfg_file["colormap"] = "rainbow"  # for plots type of colormap
 
