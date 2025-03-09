@@ -232,10 +232,10 @@ def copy_images(frame_dir, proj_path, js_file, scorer):
     categories = data.get('categories', [])
     annotations = data.get('annotations', [])
 
-    bodyparts = []
-    for category in categories:
-        if 'keypoints' in category:
-            bodyparts.extend(category['keypoints'])
+    category_ids = sorted(set(annotation['category_id'] for annotation in annotations))
+
+    category_bodyparts = {cat['id']: cat['keypoints'] for cat in categories if 'keypoints' in cat}
+    num_bodyparts_per_category = {cat_id: len(parts) for cat_id, parts in category_bodyparts.items()}
 
     for image in images:
         file_name = image.get('file_name')
@@ -262,28 +262,54 @@ def copy_images(frame_dir, proj_path, js_file, scorer):
                         with open(csv_file, mode='w', newline='') as f_csv:
                             writer = csv.writer(f_csv)
 
-                            writer.writerow(['scorer'] + [''] * 2 + [f'{scorer}'] * (2 * len(bodyparts)))
-                            expanded_bodyparts = [item for item in bodyparts for _ in range(2)]
+                            writer.writerow(
+                                ['scorer'] + [''] * 2 + [f'{scorer}'] * sum([2 * v for v in num_bodyparts_per_category.values()]))
+
+                            expanded_bodyparts = []
+                            for cat_id in category_ids:
+                                if cat_id in category_bodyparts:
+                                    for bp in category_bodyparts[cat_id]:
+                                        expanded_bodyparts.extend([bp, bp])
                             writer.writerow(['bodyparts'] + [''] * 2 + expanded_bodyparts)
-                            writer.writerow(['coords'] + [''] * 2 + ['x', 'y'] * len(bodyparts))
+                            writer.writerow(
+                                ['coords'] + [''] * 2 + ['x', 'y'] * sum(num_bodyparts_per_category.values()))
 
                     with open(csv_file, mode='a', newline='') as f_csv:
                         writer = csv.writer(f_csv)
-                        relevant_annotations = [annotation for annotation in annotations if
-                                                annotation['image_id'] == image['id']]
+
+                        all_category_coords = {
+                            cat_id: [None] * (num_bodyparts_per_category[cat_id] * 2)
+                            for cat_id in category_ids
+                        }
+
+                        relevant_annotations = [
+                            annotation for annotation in annotations if annotation['image_id'] == image['id']
+                        ]
 
                         for annotation in relevant_annotations:
-                            coords = []
-                            for i, keypoint in enumerate(bodyparts):
-                                if i * 3 + 1 < len(annotation['keypoints']):
-                                    x = annotation['keypoints'][i * 3]
-                                    y = annotation['keypoints'][i * 3 + 1]
-                                    coords.extend([x, y])
-                                else:
-                                    coords.extend([None, None])
+                            category_id = annotation['category_id']
+                            keypoints = annotation['keypoints']
 
-                            row = ['labeled-data', video_name, new_file_name] + coords
-                            writer.writerow(row)
+                            if category_id in all_category_coords:
+                                for i in range(num_bodyparts_per_category[category_id]):
+                                    keypoint_index = i * 3
+                                    if keypoint_index + 2 < len(keypoints):
+                                        x = keypoints[keypoint_index]
+                                        y = keypoints[keypoint_index + 1]
+                                        visibility = keypoints[keypoint_index + 2]
+
+
+                                        if visibility > 0:
+                                            all_category_coords[category_id][i * 2] = x
+                                            all_category_coords[category_id][i * 2 + 1] = y
+
+
+                        coords = []
+                        for cat_id in category_ids:
+                            coords.extend(all_category_coords[cat_id])
+
+                        row = ['labeled-data', video_name, new_file_name] + coords
+                        writer.writerow(row)
 
             if not found:
                 print(f"Image {file_name} not found in {frame_dir}")
