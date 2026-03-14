@@ -38,7 +38,12 @@ def extract_frames(
     """
     # Check if the input is a folder or a single file
     if os.path.isdir(input_path):
-        videos = [os.path.join(input_path, f) for f in os.listdir(input_path) if f.endswith(('.mp4', '.avi'))]
+        # videos = [os.path.join(input_path, f) for f in os.listdir(input_path) if f.endswith(('.mp4', '.avi'))]
+        videos = [
+            os.path.join(input_path, f)
+            for f in os.listdir(input_path)
+            if f.lower().endswith(('.mp4', '.avi', '.mov', '.mkv'))
+        ]
     elif os.path.isfile(input_path):
         videos = [input_path]
     else:
