@@ -48,7 +48,10 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
             raise FileNotFoundError(f"Labels folder not found: {labels_train_folder}")
 
         # Get all .txt files in the labels/train folder
-        label_files = [f for f in os.listdir(labels_train_folder) if f.endswith('.txt')]
+        label_files = [
+            f for f in os.listdir(labels_train_folder)
+            if os.path.isfile(os.path.join(labels_train_folder, f)) and not f.startswith(".")
+        ]
 
         # Shuffle the label files
         random.shuffle(label_files)
