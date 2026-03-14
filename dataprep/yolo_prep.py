@@ -65,14 +65,21 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
         val_files = label_files[split_index:]
 
         # Process train files
-        for label_file in train_files:
+        for label_path in train_files:
+            label_file = os.path.basename(label_path)
             base_name = os.path.splitext(label_file)[0]
-
-            # Move label file to train folder
-            shutil.move(
-                os.path.join(labels_train_folder, label_file),
-                os.path.join(labels_train_folder, label_file)
-            )
+        
+            # Copy label file to train folder
+            shutil.copy(label_path, os.path.join(labels_train_folder, label_file))
+        
+            # Copy corresponding image file to train folder
+            for ext in ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']:
+                image_file = os.path.join(source_images_folder, base_name + ext)
+                if os.path.exists(image_file):
+                    shutil.copy(image_file, os.path.join(images_train_folder, os.path.basename(image_file)))
+                    break
+            else:
+                print(f"Warning: No matching image found for label file '{label_file}'")
 
             # Copy corresponding image file to train folder
             for ext in ['.jpg', '.jpeg', '.png']:
@@ -84,20 +91,18 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
                 print(f"Warning: No matching image found for label file '{label_file}'")
 
         # Process val files
-        for label_file in val_files:
+        for label_path in val_files:
+            label_file = os.path.basename(label_path)
             base_name = os.path.splitext(label_file)[0]
-
-            # Move label file to val folder
-            shutil.move(
-                os.path.join(labels_train_folder, label_file),
-                os.path.join(labels_val_folder, label_file)
-            )
-
+        
+            # Copy label file to val folder
+            shutil.copy(label_path, os.path.join(labels_val_folder, label_file))
+        
             # Copy corresponding image file to val folder
-            for ext in ['.jpg', '.jpeg', '.png']:
+            for ext in ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']:
                 image_file = os.path.join(source_images_folder, base_name + ext)
                 if os.path.exists(image_file):
-                    shutil.copy(image_file, os.path.join(images_val_folder, base_name + ext))
+                    shutil.copy(image_file, os.path.join(images_val_folder, os.path.basename(image_file)))
                     break
             else:
                 print(f"Warning: No matching image found for label file '{label_file}'")
