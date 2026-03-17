@@ -82,13 +82,13 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
                 print(f"Warning: No matching image found for label file '{label_file}'")
 
             # Copy corresponding image file to train folder
-            for ext in ['.jpg', '.jpeg', '.png']:
-                image_file = os.path.join(source_images_folder, base_name + ext)
-                if os.path.exists(image_file):
-                    shutil.copy(image_file, os.path.join(images_train_folder, base_name + ext))
-                    break
-            else:
-                print(f"Warning: No matching image found for label file '{label_file}'")
+            # for ext in ['.jpg', '.jpeg', '.png']:
+            #     image_file = os.path.join(source_images_folder, base_name + ext)
+            #     if os.path.exists(image_file):
+            #         shutil.copy(image_file, os.path.join(images_train_folder, base_name + ext))
+            #         break
+            # else:
+            #     print(f"Warning: No matching image found for label file '{label_file}'")
 
         # Process val files
         for label_path in val_files:
