@@ -70,7 +70,7 @@ def prepare_yolo_dataset(base_folder, source_images_folder, train_percentage):
             base_name = os.path.splitext(label_file)[0]
         
             # Copy label file to train folder
-            shutil.copy(label_path, os.path.join(labels_train_folder, label_file))
+            # shutil.copy(label_path, os.path.join(labels_train_folder, label_file))
         
             # Copy corresponding image file to train folder
             for ext in ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']:
