@@ -1,5 +1,12 @@
 # Image Analysis Tutorials
 
+Slides available here (ppt):
+
+[![View Slides](https://img.shields.io/badge/Slides-Google%20Slides-orange?logo=googleslides&logoColor=white)](https://docs.google.com/presentation/d/1KjkStY23q80eub857WDGCehQ5Qi6HASB/edit?usp=sharing)
+
+
+
+
 Follow along using our tutorials in Google Colab:
 
 
