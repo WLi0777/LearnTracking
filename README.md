@@ -1,9 +1,8 @@
 # Image Analysis Tutorials
 
-Slides available here (ppt):
+Slides available here (ppt): [![View Slides](https://img.shields.io/badge/Slides-Google%20Slides-orange?logo=googleslides&logoColor=white)](https://docs.google.com/presentation/d/1KjkStY23q80eub857WDGCehQ5Qi6HASB/edit?usp=sharing)
 
-[![View Slides](https://img.shields.io/badge/Slides-Google%20Slides-orange?logo=googleslides&logoColor=white)](https://docs.google.com/presentation/d/1KjkStY23q80eub857WDGCehQ5Qi6HASB/edit?usp=sharing)
-
+(pdf): [![View PDF](https://img.shields.io/badge/PDF-View-red?logo=adobeacrobatreader&logoColor=white)](https://drive.google.com/file/d/1YYOTKEGwTKMVABIDtv3RzDIo7Nyut1Fx/view?usp=sharing)
 
 
 
