@@ -1,6 +1,6 @@
 # Image Analysis Tutorials
 
-**Download slides (.pptx):** [PowerPoint file](https://docs.google.com/presentation/d/1KjkStY23q80eub857WDGCehQ5Qi6HASB/export/pptx)
+**Download slides (.pptx):** [PowerPoint file](https://drive.google.com/uc?export=download&id=1KjkStY23q80eub857WDGCehQ5Qi6HASB)
 
 (pdf): [![View PDF](https://img.shields.io/badge/PDF-View-red?logo=adobeacrobatreader&logoColor=white)](https://drive.google.com/file/d/1YYOTKEGwTKMVABIDtv3RzDIo7Nyut1Fx/view?usp=sharing)
 
