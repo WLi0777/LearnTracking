@@ -8,7 +8,7 @@ Follow along using our tutorials in Google Colab:
 _Use YOLO to detect mitosis events._
 
  
-**YOLO Multi-Object Tracking:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ehFEPevf1B6vMjVQylXpemxSafQDrMUs?usp=sharing)
+**YOLO Multi-Object Tracking:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11eG_6p8Lu_wQw9Kdm2NJ2Nk7jzahzCSW?usp=sharing)
 
 _Use YOLO to track multiple individual butterflies._
 
