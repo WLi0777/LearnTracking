@@ -2,15 +2,18 @@
 
 Follow along using our tutorials in Google Colab:
 
-**YOLO Instance Detection:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ezXN6JsHfz_kCNhIaHtToSQuWV0nizmV?usp=sharing)
-_This tutorial uses YOLO to detect mitosis events._
+
+**YOLO Instance Detection:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ehFEPevf1B6vMjVQylXpemxSafQDrMUs?usp=sharing)
+
+_Use YOLO to detect mitosis events._
+
+ 
+**YOLO Multi-Object Tracking:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ehFEPevf1B6vMjVQylXpemxSafQDrMUs?usp=sharing)
+
+_Use YOLO to track multiple individual butterflies._
+
 -*Read more about YOLO by Ultralytics here: https://docs.ultralytics.com/*
 
-**DeepLabCut and Anipose for pose estimation:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XDvIR7-x48aLMr2n-I7WjWjT7o02WZij?usp=sharing)
-
--*Read about the original implementation of DeepLabCut from Mathis et al., here: https://github.com/DeepLabCut/DeepLabCut*
-
--*Read about the original implementation of Anipose from the Tuthill lab here: https://github.com/lambdaloop/anipose*
 
 ## 1. Installation
 
