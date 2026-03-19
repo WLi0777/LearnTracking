@@ -1,4 +1,4 @@
-# LearnTracking
+# Image Analysis Tutorials
 
 Follow along using our tutorials in Google Colab:
 
